@@ -1,0 +1,71 @@
+.menuCol{
+	background: #296191;
+    text-align: center;
+}
+
+.col-md-5, .col-md-6{
+	background: #f3f3f3;
+}
+
+.coluna {
+	display: block;
+    height: 700px;
+}
+
+#menu {
+    height: 70px;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+#palavraschave{
+    width: 100%;
+    padding-top: 15px;
+}
+
+#pesquisarentidade{
+    padding-top: 15px;
+}
+
+#fontes{
+	padding-top: 50px;
+}
+
+.dateNews{
+	color: #d3d3d3;
+}
+
+#logo{
+	display: block;
+    margin: auto;
+	width:110px;
+	height:65px;
+}
+
+#iconmenu{
+    line-height: 2;
+}
+
+#configcategoria{
+	width: 50%;
+	padding-top: 70px;
+}
+
+.catoption{
+	text-align: center;
+	width:250px;
+}
+
+#tagconfig{
+	width: 50%;
+	margin-top: 5px;
+}
+
+.label{
+	font-size: 50%;
+}
+
+.col-centered{
+	padding-top: 15px;
+	text-align: center;
+}

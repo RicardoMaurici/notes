@@ -1,0 +1,68 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Notes - Criar nova nota</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="{% static "jumbotron.css" %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'mynotes' %}">Minhas notas </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" >Criar nota</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="{% url 'logout_user' %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">{{ user.get_username }}<br>(Logout)</button>
+        </form>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <main role="main">
+      <div class="container">
+        <form name="updateForm" action="{% url 'edit' %}" method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="hidden" name="note_id" value="{{ note.id }}" />
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" id="titulo" name="titulo" aria-describedby="inputGroup-sizing-default" required autofocus value="{{note.title}}">
+            </div>
+            <textarea class="form-control" id="texto" name="texto" aria-label="With textarea" required>{{note.text}}</textarea>
+            <br>
+            <button class="btn btn-primary" type="submit">Atualizar nota</button>
+        </form>
+          <br>
+        <form name="removerForm" action="{% url 'edit' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="remove_note_id" value="{{ note.id }}" />
+            <button class="btn btn-danger" type="submit">Remover nota</button>
+        </form>
+      </div>
+        <hr>
+      </div> <!-- /container -->
+    </main>
+    <footer class="container">
+      <p>&copy; My Notes 2018</p>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> <\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
